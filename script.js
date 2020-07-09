@@ -1,4 +1,11 @@
-//array for password
+
+var generateBtn = document.querySelector("#generate");
+
+// Add event listener to generate button
+
+generateBtn.addEventListener("click", writePassword);
+
+
 
 var lettersArray = ["a", "b", "c", "d","e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p"];
 var capitalArray =  ["A", "B", "C", "D","E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P"];
@@ -8,16 +15,18 @@ var newPasswordArray = []
 
 
 
-// Assignment Code
-var generateBtn = document.querySelector("#generate");
-
-
 // Write password to the #password input
 function writePassword() {
   var confirmCount = prompt("How many character do you want (8-128)?");
   console.log (confirmCount);
+ 
+  if ( 8 > confirmCount ) { 
+    alert("Incorrect amount of character"); return
+  }
+  else if ( confirmCount > 182){
+    alert( "Incorrect amount of character");return
+  };
 
-  
   var confirmCapital = confirm("Click okay to confirm if you want CAPITAL letters in your password");
   console.log (confirmCapital);
   
@@ -38,31 +47,30 @@ function writePassword() {
         console.log (confirmCapital)
       passwordArray.push(randomCapital)
       console.log (passwordArray)}
-      else {null}
+      else {null};
 
       if (confirmLetter) {
         var randomLetter = lettersArray[Math.floor(Math.random() * lettersArray.length)];
-      console.log (randomLetter)
-      passwordArray.push(randomLetter)
+      console.log (randomLetter);
+      passwordArray.push(randomLetter);
       console.log (passwordArray)}
-      else {null}
+      else {null};
 
       if (confirmNumber) {
         var randomNumber = numberArray[Math.floor(Math.random() * numberArray.length)];
-      console.log (randomNumber)
-      passwordArray.push(randomNumber)
+      console.log (randomNumber);
+      passwordArray.push(randomNumber);
       console.log (passwordArray)}
-      else {null}
-      }
-      for (var i = 0; i < confirmCount; i++) {
-      var newPassword = passwordArray[Math.floor(Math.random() * passwordArray.length)];
-      newPasswordArray.push(newPassword)
-      console.log (newPassword)
-      console.log (newPasswordArray)
+      else {null};
+
+    for (var i = 0; i < confirmCount; i++) {
+    var newPassword = passwordArray[Math.floor(Math.random() * passwordArray.length)];
+    newPasswordArray.push(newPassword);
+    console.log (newPassword);
+    console.log (newPasswordArray);
+    document.getElementById("password").innerHTML = newPasswordArray.join("")
+    
+    }
   }
 }
-
-// Add event listener to generate button
-
-generateBtn.addEventListener("click", writePassword);
 
