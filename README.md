@@ -1,1 +1,2 @@
 # passwordgenerator
+We created an application that generated a random password based on user selcted ccriteria. The app was about to run on the broser and it updated the HTML and the CSS by using our JS code. The criteria in the series of prompts were that it had to have at least 9 characters length and no more than 128 character. So I created an alert and if statements to run the scenrio
