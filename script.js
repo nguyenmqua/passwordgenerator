@@ -10,6 +10,7 @@ generateBtn.addEventListener("click", writePassword);
 var lettersArray = ["a", "b", "c", "d","e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p"];
 var capitalArray =  ["A", "B", "C", "D","E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P"];
 var numberArray =  ["1", "2", "3", "4", "5", "6", "7", "8", "9", "0",];
+var characterArray = ["!","@","#", "$", "%","^","&","(",")",]
 var passwordArray = []
 var newPasswordArray = []
 
@@ -25,7 +26,7 @@ function writePassword() {
   }
   else if ( confirmCount > 182){
     alert( "Incorrect amount of character");return
-  };
+  }
 
   var confirmCapital = confirm("Click okay to confirm if you want CAPITAL letters in your password");
   console.log (confirmCapital);
@@ -35,7 +36,7 @@ function writePassword() {
   console.log (confirmLetter);
   
 
-  var confirmCharacter = confirm("Click okay to confirm if you want specialized letters in your password");
+  var confirmCharacter = confirm("Click okay to confirm if you want specialized characters in your password");
   console.log (confirmCharacter);
 
   var confirmNumber = confirm("Click okay to confirm if you want numbers in your password");
@@ -47,30 +48,38 @@ function writePassword() {
         console.log (confirmCapital)
       passwordArray.push(randomCapital)
       console.log (passwordArray)}
-      else {null};
+      else {null}
 
       if (confirmLetter) {
         var randomLetter = lettersArray[Math.floor(Math.random() * lettersArray.length)];
-      console.log (randomLetter);
-      passwordArray.push(randomLetter);
+      console.log (randomLetter)
+      passwordArray.push(randomLetter)
       console.log (passwordArray)}
-      else {null};
+      else {null}
+
+      if (confirmCharacter) {
+        var randomCharacter = characterArray[Math.floor(Math.random() * characterArray.length)];
+      console.log (randomCharacter)
+      passwordArray.push(randomCharacter)
+      console.log (passwordArray)}
+      else {null}
+
 
       if (confirmNumber) {
         var randomNumber = numberArray[Math.floor(Math.random() * numberArray.length)];
-      console.log (randomNumber);
-      passwordArray.push(randomNumber);
+      console.log (randomNumber)
+      passwordArray.push(randomNumber)
       console.log (passwordArray)}
-      else {null};
-
-    for (var i = 0; i < confirmCount; i++) {
-    var newPassword = passwordArray[Math.floor(Math.random() * passwordArray.length)];
-    newPasswordArray.push(newPassword);
-    console.log (newPassword);
-    console.log (newPasswordArray);
-    document.getElementById("password").innerHTML = newPasswordArray.join("")
-    
+      else {null}
+      
     }
-  }
-}
+      for (var i = 0; i < confirmCount; i++) {
+        var newPassword = passwordArray[Math.floor(Math.random() * passwordArray.length)];
+        newPasswordArray.push(newPassword)
+        console.log (newPassword);
+        console.log (newPasswordArray);
+        document.getElementById("password").innerHTML = newPasswordArray.join(""); 
+       }
 
+} 
+  
